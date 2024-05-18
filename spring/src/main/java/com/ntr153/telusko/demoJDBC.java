@@ -3,9 +3,7 @@ package com.ntr153.telusko;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class demoJDBC {
     public static void main(String[] args) throws SQLException {
@@ -23,8 +21,8 @@ public class demoJDBC {
 
         /* Basic JDBC connection and Usage - */
 
-        String url = "jdbc:oracle:thin:@localhost:1522/xe"; // jdbc:connector://location:portNumber/SID_or_service_name
-        // String url = "jdbc:oracle:thin:@localhost:1522/XEPDB1";          // this was original database name from oracle
+        String url = "jdbc:oracle:thin:@localhost:1522/xe";     // jdbc:connector://location:portNumber/SID_or_service_name
+                                                                //XEPDB1 -  this was original database name from oracle
         String userName = "C##NTR153";
         String password = "0000";
 

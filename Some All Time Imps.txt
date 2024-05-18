@@ -1,0 +1,50 @@
+/*
+1. Import Packages
+2. Load Driver
+3. Register Driver
+4. Create Connection
+5. Create Statement
+6. Execute Statement
+7. Close Connection
+*/
+
+/* Basic JDBC connection and Usage - */ 
+
+String url = "jdbc:postgresql://localhost:5432/demo";						//jdbc:connector://location:portNumber/databaseName
+String userName = "postgres";
+String password = "0000";
+
+String sql = "select * from student";
+
+// Class.forName("org.postgresql.Driver");									// (load and register driver) was needed in previous versions
+Connection con = DriverManager.getConnection(url, userName, password);		// (create connection)
+
+Statement st = con.createStatement();										// (create statement)
+ResultSet rs = st.executeQuery(sql);
+
+while(rs.next) {
+	System.out.print(rs.getInt(1));											// gets output based on column index
+	System.out.print(rs.getString(2));
+	System.out.println(rs.getInt(3));
+}
+
+con.close();																// (close connection)
+
+/* Using Prepared Statement */
+
+int sid = 5;
+String sname = "Max";
+int marks = 50;
+
+String sql = "insert into student values (?,?,?)";
+
+Connection con = DriverManager.getConnection(url, userName, password);
+
+PreparedStatement st = con.prepareStatement(sql);
+st.setInt(1,sid);
+st.setString(2,sname);
+st.setInt(3,marks);
+
+st.execute();
+
+con.close();

@@ -22,7 +22,7 @@ Connection con = DriverManager.getConnection(url, userName, password);		// (crea
 Statement st = con.createStatement();										// (create statement)
 ResultSet rs = st.executeQuery(sql);
 
-while(rs.next) {
+while(rs.next()) {
 	System.out.print(rs.getInt(1));											// gets output based on column index
 	System.out.print(rs.getString(2));
 	System.out.println(rs.getInt(3));

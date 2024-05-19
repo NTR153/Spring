@@ -3,13 +3,20 @@
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="alien1" class="com.ntr153.telusko.Alien" scope="singleton">       <!-- default scope is singleton -->
+    <bean id="alien1" class="com.ntr153.telusko.Alien" scope="singleton">   <!-- default scope is singleton, any reference refers the same object -->
+                                                                            <!-- constructors and setters are called upon container initialization -->
     </bean>
 
     <bean id="alien2" class="com.ntr153.telusko.Alien">
+        <property name="age" value = "23"></property>       <!-- this is called injection i.e. setting default value using setter method but without setting it in class -->
+        <property name="lap" ref="lap1"></property>         <!-- injection for laptop - the reference is same as id for laptop -->
     </bean>
 
-    <bean id="lap" class="com.ntr153.telusko.Laptop" scope="prototype">
+    <bean id="lap1" class="com.ntr153.telusko.Laptop" scope="prototype">        <!-- prototype scope is used for creating new object on every initialization/reference -->
+        <constructor-arg index="0" type="String" value="Lenovo"/>                           <!-- Injecting into parameterized constructor -->
+        <constructor-arg index="1" name="model" type="String" value="Thinkpad"/>            <!-- sequence of parameters < type < index < name -->
+                                                                                            <!-- Note: even for name and type, the sequence of parameters matter -->
+            <!-- We can use @ConstructorProperties({"param1", "param2"}) on parameter to be independent off of sequence when injecting values to parameters using name -->
     </bean>
 
 </beans>

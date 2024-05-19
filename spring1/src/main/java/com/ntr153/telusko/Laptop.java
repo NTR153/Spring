@@ -1,14 +1,45 @@
 package com.ntr153.telusko;
 
+import java.beans.ConstructorProperties;
+
 public class Laptop {
 
-    String company;
+    private String company;
+    private String model;
 
-    public Laptop() {
-        System.out.println("Laptop object created");
+    @Override
+    public String toString() {
+        return "Laptop [company=" + company + ", model=" + model + "]";
     }
 
-    public void Compiling() {
+    public Laptop() {
+        System.out.println("Laptop object created using default constructor");
+    }
+
+    @ConstructorProperties({"company","model"})
+    public Laptop(String company, String model) {         // Parameterized constructor
+        this.company = company;
+        this.model = model;
+        System.out.println("Laptop object created using parameterized constructor");
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void compile() {
         System.out.println("Compiling");
     }
 }

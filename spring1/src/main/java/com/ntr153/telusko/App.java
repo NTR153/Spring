@@ -13,21 +13,26 @@ public class App
     {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         
-        Alien alien1 = (Alien) context.getBean("alien1");
-        alien1.age=21;
-        // alien1.code();
-        System.out.println(alien1.age);
+        Alien alien1_0 = (Alien) context.getBean("alien1");
+        alien1_0.setAge(21);
+        // alien1_0.code();
+        System.out.println(alien1_0.getAge());
 
-        Alien alien2 = (Alien) context.getBean("alien1");       // Even if we have different references, the object remains the same if the id name is same.
-        // alien2.code();
-        System.out.println(alien2.age);
+        Alien alien1_1 = (Alien) context.getBean("alien1");         // Even if we have different references, the object remains the same if the id name is same.
+        // alien1_1.code();
+        System.out.println(alien1_1.getAge());
 
-        Laptop laptop1 = (Laptop) context.getBean("lap");
-        laptop1.company = "Lenovo";
-        System.out.println(laptop1.company);
+        Alien alien2 = (Alien) context.getBean("alien2");
+        System.out.println(alien2.getAge());                           // The value of age comes from injection in xml document
+        alien2.code();
 
-        Laptop laptop2 = (Laptop) context.getBean("lap");
-        // laptop2.company = "hp";
-        System.out.println(laptop2.company);
+        Laptop laptop1 = (Laptop) context.getBean("lap1");
+        // laptop1.setCompany("Lenovo");
+        System.out.println(laptop1);
+
+        Laptop laptop2 = (Laptop) context.getBean("lap1");
+        laptop2.setCompany("DELL");
+        laptop2.setModel("G15");
+        System.out.println(laptop2);
     }
 }

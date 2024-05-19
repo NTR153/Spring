@@ -65,9 +65,11 @@ Scopes of beans -
                 - In Spring Framework, singleton objects are created the same number of times as defined in the spring.xml in resources folder (or wherever and whichever folder defined).
                 - These are created on initializing the container.
                 - Even if we have different references, the object remains the same if the id name is same.
+                - constructors and setters are called upon container initialization
 
 2. Prototype    - used in Spring (to be defined in xml)
                 - created the same number of times as initializations of the object.
                 - Not created on container initialization.
 3. Request
 4. Session
+

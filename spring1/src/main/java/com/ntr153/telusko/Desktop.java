@@ -2,25 +2,25 @@ package com.ntr153.telusko;
 
 import java.beans.ConstructorProperties;
 
-public class Laptop implements Computer {
+public class Desktop implements Computer {
 
     private String company;
     private String model;
 
     @Override
     public String toString() {
-        return "Laptop [company=" + company + ", model=" + model + "]";
+        return "Desktop [company=" + company + ", model=" + model + "]";
     }
 
-    public Laptop() {
-        System.out.println("Laptop object created using default constructor");
+    public Desktop() {
+        System.out.println("Desktop object created using default constructor");
     }
 
     @ConstructorProperties({"company","model"})
-    public Laptop(String company, String model) {         // Parameterized constructor
+    public Desktop(String company, String model) {         // Parameterized constructor
         this.company = company;
         this.model = model;
-        System.out.println("Laptop object created using parameterized constructor");
+        System.out.println("Desktop object created using parameterized constructor");
     }
 
     public String getCompany() {
@@ -41,6 +41,6 @@ public class Laptop implements Computer {
 
     @Override
     public void compile() {
-        System.out.println("Compiling using Laptop");
+        System.out.println("Compiling using Desktop");
     }
 }

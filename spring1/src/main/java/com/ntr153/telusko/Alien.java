@@ -3,7 +3,7 @@ package com.ntr153.telusko;
 public class Alien {
 
     private int age;
-    private Laptop lap;             // Laptop object is defined and injected in xml
+    private Computer comp;             // Laptop object is defined and injected in xml
 
     public Alien() {
         System.out.println("Alien object created");
@@ -20,14 +20,14 @@ public class Alien {
 
     public void code() {
         System.out.println("Coding");
-        lap.compile();
+        comp.compile();
     }
 
-    public Laptop getLap() {
-        return lap;
+    public Computer getComp() {
+        return comp;
     }
 
-    public void setLap(Laptop lap) {
-        this.lap = lap;
+    public void setComp(Computer comp) {
+        this.comp = comp;
     }
 }

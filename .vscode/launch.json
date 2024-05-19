@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.App",
+            "projectName": "spring1"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-Springboot1Application<springboot1>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

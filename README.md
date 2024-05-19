@@ -54,8 +54,20 @@ For creating even a simple code using Spring, we needed to -
 3. Create the Beans
 .
 .
-this is where springboot comes into picture, making this simpler
+this is where springboot comes into picture, making things simpler
 
 Springboot is an opinionated framework.
 
 Any object created or managed by Spring are called Beans.
+
+Scopes of beans -
+1. Singleton    - used in Spring (default)
+                - In Spring Framework, singleton objects are created the same number of times as defined in the spring.xml in resources folder (or wherever and whichever folder defined).
+                - These are created on initializing the container.
+                - Even if we have different references, the object remains the same if the id name is same.
+
+2. Prototype    - used in Spring (to be defined in xml)
+                - created the same number of times as initializations of the object.
+                - Not created on container initialization.
+3. Request
+4. Session

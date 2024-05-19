@@ -48,3 +48,14 @@ Tools -
 IoC (Inversion of Control) Container - Control the flow of application, object creation. 
 DI (Dependency Injection) - A design pattern for IoC. Used for injecting object/s within an object.
 
+For creating even a simple code using Spring, we needed to -
+1. Create the Project
+2. Configure XML Files
+3. Create the Beans
+.
+.
+this is where springboot comes into picture, making this simpler
+
+Springboot is an opinionated framework.
+
+Any object created or managed by Spring are called Beans.

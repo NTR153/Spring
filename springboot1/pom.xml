@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.ntr153.telusko</groupId>
 	<artifactId>springboot1</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>springboot1</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>

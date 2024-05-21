@@ -1,3 +1,5 @@
+<!-- for XML based config (ClassPathXmlApplicationContext) -->
+
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
@@ -5,11 +7,18 @@
 
     <bean id="alien1" class="com.ntr153.telusko.Alien" scope="singleton">   <!-- default scope is singleton, any reference refers the same object -->
                                                                             <!-- constructors and setters are called upon container initialization -->
+        <property name="age" value = "23"></property>
+        <property name="comp">
+            <bean class="com.ntr153.telusko.Laptop">                        <!-- inner bean, can only be used by alien1 -->
+                <property name="company" value="MSI"></property>
+            </bean>
+        </property>
     </bean>
 
-    <bean id="alien2" class="com.ntr153.telusko.Alien">
+    <bean id="alien2" class="com.ntr153.telusko.Alien"  autowire="byName">
         <property name="age" value = "23"></property>       <!-- this is called injection i.e. setting default value using setter method but without setting it in class -->
-        <property name="comp" ref="desk1"></property>         <!-- injection for laptop - the reference is same as id for laptop -->
+        <!-- <property name="comp" ref="desk1"></property>          -->
+        <!-- injection for laptop - the reference is same as id for laptop. If using autowire by name, no need of above line. Spring will choose the bean with same name -->
     </bean>
 
     <bean id="lap1" class="com.ntr153.telusko.Laptop" scope="prototype">        <!-- prototype scope is used for creating new object on every initialization/reference -->
@@ -19,11 +28,21 @@
             <!-- We can use @ConstructorProperties({"param1", "param2"}) on parameter to be independent off of sequence when injecting values to parameters using name -->
     </bean>
 
-    <bean id="desk1" class="com.ntr153.telusko.Desktop" scope="prototype">        <!-- prototype scope is used for creating new object on every initialization/reference -->
-        <constructor-arg index="0" type="String" value="LG"/>                           <!-- Injecting into parameterized constructor -->
-        <constructor-arg index="1" name="model" type="String" value="NotSure"/>            <!-- sequence of parameters < type < index < name -->
-                                                                                            <!-- Note: even for name and type, the sequence of parameters matter -->
-            <!-- We can use @ConstructorProperties({"param1", "param2"}) on parameter to be independent off of sequence when injecting values to parameters using name -->
+    <!-- desk1 -->
+    <bean id="comp" class="com.ntr153.telusko.Desktop" scope="prototype">       <!-- the name comp from Alien class and id defined here must be same -->
+                                                                                <!-- for autowire to work -->
+        <!-- If autowire by name and name in the property, both are defined, spring will prefer the name that is explicitly defined -->
+        <!-- Autowire can be byType as well. If multiple beans of same type are defined, one of them can be set primary="true" to avoid confusion  -->
+        <constructor-arg index="0" name="company" type="String" value="LG"/>
+        <constructor-arg index="1" name="model" type="String" value="NotSure"/>
+    </bean>
+
+    <bean class="com.ntr153.telusko.Desktop" scope="prototype" lazy-init="true" primary="true">
+                                                        <!-- lazy-init="true" avoids object creation on context initialization (application loading) -->
+                                                        <!-- this object will only be created when explicitly call it -->
+                                                        <!-- if a non-lazy bean is dependent on lazy bean, it will be created on application loading itself -->
+        <constructor-arg index="0" name="company" type="String" value="Asus"/>
+        <constructor-arg index="1" name="model" type="String" value="NotSure"/>
     </bean>
 
 </beans>

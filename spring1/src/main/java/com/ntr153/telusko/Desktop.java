@@ -16,7 +16,7 @@ public class Desktop implements Computer {
         System.out.println("Desktop object created using default constructor");
     }
 
-    @ConstructorProperties({"company","model"})
+    @ConstructorProperties({"company","model"})            // Required for autowire byName
     public Desktop(String company, String model) {         // Parameterized constructor
         this.company = company;
         this.model = model;

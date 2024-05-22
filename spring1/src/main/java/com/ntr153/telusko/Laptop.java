@@ -2,6 +2,8 @@ package com.ntr153.telusko;
 
 import java.beans.ConstructorProperties;
 
+// @Component
+// @Scope("prototype")
 public class Laptop implements Computer {
 
     private String company;

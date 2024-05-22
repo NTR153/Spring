@@ -2,7 +2,6 @@ package com.ntr153.telusko;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.ntr153.telusko.config.AppConfig;
 
@@ -28,6 +27,10 @@ public class App
         dt2.compile();
 
         System.out.println();
+
+        Alien alien1 = (Alien) context.getBean("alien");
+        System.out.println("alien1 - \n" + alien1.getAge());
+        System.out.println(alien1.getComp());
 
         ((AnnotationConfigApplicationContext) context).close();
 

@@ -2,6 +2,9 @@ package com.ntr153.telusko;
 
 import java.beans.ConstructorProperties;
 
+import org.springframework.stereotype.Component;
+
+@Component("comp2")             // comp2 is a name, that can be used in a qualifier when not using java or xml based config
 public class Desktop implements Computer {
 
     private String company;

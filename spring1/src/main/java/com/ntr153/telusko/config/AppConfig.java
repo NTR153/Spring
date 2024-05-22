@@ -1,8 +1,7 @@
 package com.ntr153.telusko.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
@@ -15,6 +14,9 @@ import com.ntr153.telusko.Computer;
 // for java based config ()
 
 @Configuration
+@ComponentScan("com.ntr153.telusko")     // Communicates with spring that we are not defining beans, instead using classes directly.
+                                            // Every class we need to have must be having @Component annotation
+                                            // we can comment out Bean methods in AppConfig below
 public class AppConfig {
     
     @Bean

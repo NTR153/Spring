@@ -73,3 +73,10 @@ Scopes of beans -
 3. Request
 4. Session
 
+Types of injections (using AutoWired) - 
+
+1. Field Injection
+2. Constructor Injection
+3. Setter Injection
+
+If qualifier and primary, both are being used, qualifier will be preffered

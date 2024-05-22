@@ -1,9 +1,18 @@
 package com.ntr153.telusko;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Alien {
 
+    // @Value("21")
     private int age;
-    private Computer comp;             // Laptop object is defined and injected in xml
+    // @Autowired                       // Not sure of the function
+    @Qualifier("laptop")                // Same as class name but first letter is small, to multiple implementations issue
+    private Computer comp;              // Laptop object is defined and injected in xml
+                                        // make sure we have only one implementation available if using Component Stereotype or handle it
+                                        // i.e. either of Desktop and Laptop
 
     public Alien() {
         System.out.println("Alien object created");

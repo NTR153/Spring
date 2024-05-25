@@ -79,4 +79,10 @@ Types of injections (using AutoWired) -
 2. Constructor Injection
 3. Setter Injection
 
-If qualifier and primary, both are being used, qualifier will be preffered
+If qualifier and primary, both are being used, qualifier will be preffered.
+
+Client <--> Server <--> Database
+Server has three layers - 
+1. Controller - Sends and accepts requests. Works on model objects.
+2. Service - Does the programming, logical operations, processings, etc.
+3. Repository - Also called DAO (Data Access Object). It is responsible to interact with Database/Repository.

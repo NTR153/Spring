@@ -27,6 +27,7 @@ public class Springboot1Application {
 		student.setStudentMarks(0);
 
 		StudentService studentService = context.getBean(StudentService.class);
-		studentService.addStudent(student);
+		// studentService.addStudent(student);
+		System.out.println(studentService.getStudents());
 	}
 }

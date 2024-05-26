@@ -1,5 +1,8 @@
 package com.ntr153.telusko.springboot1.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Student {
 
     private int studentNo;
@@ -9,7 +12,7 @@ public class Student {
     @Override
     public String toString() {
         return "Student [studentNo=" + studentNo + ", studentName=" + studentName + ", studentMarks=" + studentMarks
-                + "]";
+                + "]\n";
     }
 
     public int getStudentNo() {

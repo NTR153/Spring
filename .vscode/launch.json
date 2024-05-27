@@ -5,6 +5,13 @@
             "name": "App",
             "request": "launch",
             "mainClass": "com.ntr153.telusko.App",
+            "projectName": "servlet1"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.App",
             "projectName": "spring1"
         },
         {
@@ -15,7 +22,8 @@
             "mainClass": "com.ntr153.telusko.springboot1.Springboot1Application",
             "projectName": "springboot1",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=61907 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=springboot1"
         }
     ]
 }

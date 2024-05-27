@@ -86,3 +86,24 @@ Server has three layers -
 1. Controller - Sends and accepts requests. Works on model objects.
 2. Service - Does the programming, logical operations, processings, etc.
 3. Repository - Also called DAO (Data Access Object). It is responsible to interact with Database/Repository.
+
+Apache TomCat is a Servlet/Web Container, needed to run servlets.
+A console application needs a .jar (Java Archive) package whereas a web application needs a .war (Web Archive) package.
+
+Types of HTTP Methods to interact with server using servlet -
+1. Get (Get Data)
+2. Post (Send Data)
+3. Delete (Delete Data)
+4. Put (Update Data)
+
+JSP (Jakarta Server Pages, formerly JavaServer Pages) is a view technology, used to avoid java code getting bulky using HTML.
+Some common view technologies include -
+1. Thymeleaf
+2. FreeMarker
+3. Groovy Markup
+4. Script Views
+5. JSP and JSTL
+
+Model View Controller (MVC) uses Objects (Models) to get the data. 
+The flow being Client <-> Server (Controller [Servlet] -> Model [POJO] -> View [JSP]) <-> Database.
+In Tomcat "Server/Servlet Container", the JSP is converted to Servlet to be able to run it.

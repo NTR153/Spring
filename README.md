@@ -105,5 +105,6 @@ Some common view technologies include -
 5. JSP and JSTL
 
 Model View Controller (MVC) uses Objects (Models) to get the data. 
-The flow being Client <-> Server (Controller [Servlet] -> Model [POJO] -> View [JSP]) <-> Database.
+The flow being Client <-> Server (Controller [Servlet] -> Model [POJO] -> View [JSP]) <-> Database. 
+Note: JSP is also called by the controller.
 In Tomcat "Server/Servlet Container", the JSP is converted to Servlet to be able to run it.

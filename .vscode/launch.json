@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "OrmbappApplication",
+            "request": "launch",
+            "mainClass": "com.ormb.app.ormbapp.OrmbappApplication",
+            "projectName": "ormbapp"
+        },
+        {
+            "type": "java",
+            "name": "Application",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.springbootweb1.Application",
+            "projectName": "springbootweb1"
+        },
+        {
+            "type": "java",
+            "name": "SpringBootWeb1Application",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.springbootweb1.SpringBootWeb1Application",
+            "projectName": "springbootweb1"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "com.ntr153.telusko.App",
@@ -24,6 +45,16 @@
             "args": "",
             "envFile": "${workspaceFolder}/.env",
             "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=61907 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=springboot1"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Springbootweb1Application<springbootweb1>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ntr153.telusko.springbootweb1.Springbootweb1Application",
+            "projectName": "springbootweb1",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

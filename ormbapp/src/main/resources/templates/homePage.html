@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Information</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        /* Styling for navigation tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: space-around;
+            background-color: #4caf50;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .nav-tabs a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-tabs a:hover {
+            background-color: #45a049;
+        }
+
+        /* Additional styling for form layout */
+        .form-section {
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button.cancel {
+            background-color: #d9534f;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    
+ <div>
+    <h2>Welcome, <span th:text="${userId}"></span></h2>
+    <p>This is your home page.</p>
+ </div>
+
+    <div class="container">
+        <h2>Person Information</h2>
+
+        <!-- Navigation tabs -->
+        <div class="nav-tabs">
+            <a href="javascript:void(0)" onclick="openTab('personalTab')">Personal Information</a>
+            <a href="javascript:void(0)" onclick="openTab('contactTab')">Contact Information</a>
+            <a href="javascript:void(0)" onclick="openTab('relationsTab')">Relations</a>
+            <a href="javascript:void(0)" onclick="openTab('perNameTab')">PerName</a>
+        </div>
+
+        
+  <!-- Common form element that wraps all sections -->
+  <form action="/submit-all-sections" method="post">
+
+           
+
+
+        <!-- Personal Information Section -->
+        <div class="form-section" id="personalTab">
+            <h3>Personal Information</h3>
+            
+                <label for="perId">Per ID:</label>
+                <input type="text" id="perId" name="perId" required>
+
+                <label for="languageCd">Language Code:</label>
+                <input type="text" id="languageCd" name="languageCd" required>
+
+                <label for="perOrBusFlg">Per or Bus Flag:</label>
+                <input type="text" id="perOrBusFlg" name="perOrBusFlg" required>
+
+                <label for="lsSlFlg">LS SL Flag:</label>
+                <input type="text" id="lsSlFlg" name="lsSlFlg" required>
+
+                <label for="lsSlDescr">LS SL Description:</label>
+                <input type="text" id="lsSlDescr" name="lsSlDescr" required>
+
+                <label for="emailId">Email ID:</label>
+                <input type="text" id="emailId" name="emailId" required>
+
+                <label for="ovrdMailName1">Override Mail Name 1:</label>
+                <input type="text" id="ovrdMailName1" name="ovrdMailName1" required>
+
+                <label for="ovrdMailName2">Override Mail Name 2:</label>
+                <input type="text" id="ovrdMailName2" name="ovrdMailName2" required>
+
+                <label for="ovrdMailName3">Override Mail Name 3:</label>
+                <input type="text" id="ovrdMailName3" name="ovrdMailName3" required>
+
+                <label for="address1">Address 1:</label>
+                <input type="text" id="address1" name="address1" required>
+
+                <label for="address2">Address 2:</label>
+                <input type="text" id="address2" name="address2" required>
+
+                <label for="address3">Address 3:</label>
+                <input type="text" id="address3" name="address3" required>
+
+                <label for="address4">Address 4:</label>
+                <input type="text" id="address4" name="address4" required>
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+
+                <label for="num1">Number 1:</label>
+                <input type="text" id="num1" name="num1" required>
+
+                <label for="num2">Number 2:</label>
+                <input type="text" id="num2" name="num2" required>
+
+                <label for="county">County:</label>
+                <input type="text" id="county" name="county" required>
+
+                <label for="postal">Postal:</label>
+                <input type="text" id="postal" name="postal" required>
+
+                <label for="houseType">House Type:</label>
+                <input type="text" id="houseType" name="houseType" required>
+
+                <label for="geoCode">Geo Code:</label>
+                <input type="text" id="geoCode" name="geoCode" required>
+
+                <label for="inCityLimit">In City Limit:</label>
+                <input type="text" id="inCityLimit" name="inCityLimit" required>
+
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" required>
+
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" required>
+
+                <label for="version">Version:</label>
+                <input type="text" id="version" name="version" required>
+
+                <label for="recvMktgInfoFlg">Receive Marketing Info Flag:</label>
+                <input type="text" id="recvMktgInfoFlg" name="recvMktgInfoFlg" required>
+
+                <label for="webPasswd">Web Password:</label>
+                <input type="text" id="webPasswd" name="webPasswd" required>
+
+                <label for="webPwdHintFlg">Web Password Hint Flag:</label>
+                <input type="text" id="webPwdHintFlg" name="webPwdHintFlg" required>
+
+                <label for="webPasswdAns">Web Password Answer:</label>
+                <input type="text" id="webPasswdAns" name="webPasswdAns" required>
+
+                <label for="perDataArea">Per Data Area:</label>
+                <input type="text" id="perDataArea" name="perDataArea" required>
+
+                <label for="cisDivision">CIS Division:</label>
+                <input type="text" id="cisDivision" name="cisDivision" required>
+
+                <label for="accessGrpCd">Access Group Code:</label>
+                <input type="text" id="accessGrpCd" name="accessGrpCd" required>
+
+                <label for="birthDt">Birth Date:</label>
+                <input type="text" id="birthDt" name="birthDt" required>
+
+                <label for="sinceDt">Since Date:</label>
+                <input type="text" id="sinceDt" name="sinceDt" required>
+
+                <label for="creBy">Created By:</label>
+                <input type="text" id="creBy" name="creBy" required>
+
+                <label for="lastUpdBy">Last Updated By:</label>
+                <input type="text" id="lastUpdBy" name="lastUpdBy" required>
+
+                <label for="creDttm">Created Date Time:</label>
+                <input type="text" id="creDttm" name="creDttm" required>
+
+                <label for="lastUpdDttm">Last Updated Date Time:</label>
+                <input type="text" id="lastUpdDttm" name="lastUpdDttm" required>
+
+                <label for="boStatusCd">BO Status Code:</label>
+                <input type="text" id="boStatusCd" name="boStatusCd" required>
+
+                <label for="statusUpdDttm">Status Updated Date Time:</label>
+                <input type="text" id="statusUpdDttm" name="statusUpdDttm" required>
+
+                <label for="busObjCd">Business Object Code:</label>
+                <input type="text" id="busObjCd" name="busObjCd" required>
+
+                <label for="boDataArea">BO Data Area:</label>
+                <input type="text" id="boDataArea" name="boDataArea" required>
+
+                <label for="custSegFlg">Customer Segment Flag:</label>
+                <input type="text" id="custSegFlg" name="custSegFlg" required>
+
+                <label for="custTierFlg">Customer Tier Flag:</label>
+                <input type="text" id="custTierFlg" name="custTierFlg" required>
+
+                <label for="srcSystemCd">Source System Code:</label>
+                <input type="text" id="srcSystemCd" name="srcSystemCd" required>
+
+                <label for="relMgr">Relationship Manager:</label>
+                <input type="text" id="relMgr" name="relMgr" required>
+
+                <label for="imRefundSw">IM Refund SW:</label>
+                <input type="text" id="imRefundSw" name="imRefundSw" required>
+                
+                <!-- Add input fields for other columns in the personal information section -->
+
+        </div>
+
+        <!-- Contact Information Section -->
+        <div class="form-section" id="contactTab">
+            <h3>Contact Information</h3>
+            
+                <label for="emailId">Email ID:</label>
+                <input type="text" id="emailId" name="emailId" required>
+
+                <label for="ovrdMailName1">Override Mail Name 1:</label>
+                <input type="text" id="ovrdMailName1" name="ovrdMailName1" required>
+
+                <label for="ovrdMailName2">Override Mail Name 2:</label>
+                <input type="text" id="ovrdMailName2" name="ovrdMailName2" required>
+
+                <label for="ovrdMailName3">Override Mail Name 3:</label>
+                <input type="text" id="ovrdMailName3" name="ovrdMailName3" required>
+
+                <label for="address1">Address 1:</label>
+                <input type="text" id="address1" name="address1" required>
+
+                <label for="address2">Address 2:</label>
+                <input type="text" id="address2" name="address2" required>
+
+                <label for="address3">Address 3:</label>
+                <input type="text" id="address3" name="address3" required>
+
+                <label for="address4">Address 4:</label>
+                <input type="text" id="address4" name="address4" required>
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+
+                <label for="num1">Number 1:</label>
+                <input type="text" id="num1" name="num1" required>
+
+                <label for="num2">Number 2:</label>
+                <input type="text" id="num2" name="num2" required>
+
+                <label for="county">County:</label>
+                <input type="text" id="county" name="county" required>
+
+                <label for="postal">Postal:</label>
+                <input type="text" id="postal" name="postal" required>
+
+                <label for="houseType">House Type:</label>
+                <input type="text" id="houseType" name="houseType" required>
+
+                <label for="geoCode">Geo Code:</label>
+                <input type="text" id="geoCode" name="geoCode" required>
+
+                <label for="inCityLimit">In City Limit:</label>
+                <input type="text" id="inCityLimit" name="inCityLimit" required>
+
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" required>
+
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" required>
+
+                <label for="version">Version:</label>
+                <input type="text" id="version" name="version" required>
+
+                <label for="recvMktgInfoFlg">Receive Marketing Info Flag:</label>
+                <input type="text" id="recvMktgInfoFlg" name="recvMktgInfoFlg" required>
+
+                <label for="webPasswd">Web Password:</label>
+                <input type="text" id="webPasswd" name="webPasswd" required>
+
+                <label for="webPwdHintFlg">Web Password Hint Flag:</label>
+                <input type="text" id="webPwdHintFlg" name="webPwdHintFlg" required>
+
+                <label for="webPasswdAns">Web Password Answer:</label>
+                <input type="text" id="webPasswdAns" name="webPasswdAns" required>
+
+                <label for="perDataArea">Per Data Area:</label>
+                <input type="text" id="perDataArea" name="perDataArea" required>
+
+                <label for="cisDivision">CIS Division:</label>
+                <input type="text" id="cisDivision" name="cisDivision" required>
+
+                <label for="accessGrpCd">Access Group Code:</label>
+                <input type="text" id="accessGrpCd" name="accessGrpCd" required>
+
+                <label for="birthDt">Birth Date:</label>
+                <input type="text" id="birthDt" name="birthDt" required>
+
+                <label for="sinceDt">Since Date:</label>
+                <input type="text" id="sinceDt" name="sinceDt" required>
+
+                <label for="creBy">Created By:</label>
+                <input type="text" id="creBy" name="creBy" required>
+
+                <label for="lastUpdBy">Last Updated By:</label>
+                <input type="text" id="lastUpdBy" name="lastUpdBy" required>
+
+                <label for="creDttm">Created Date Time:</label>
+                <input type="text" id="creDttm" name="creDttm" required>
+
+                <label for="lastUpdDttm">Last Updated Date Time:</label>
+                <input type="text" id="lastUpdDttm" name="lastUpdDttm" required>
+
+                <label for="boStatusCd">BO Status Code:</label>
+                <input type="text" id="boStatusCd" name="boStatusCd" required>
+
+                <label for="statusUpdDttm">Status Updated Date Time:</label>
+                <input type="text" id="statusUpdDttm" name="statusUpdDttm" required>
+
+                <label for="busObjCd">Business Object Code:</label>
+                <input type="text" id="busObjCd" name="busObjCd" required>
+
+                <label for="boDataArea">BO Data Area:</label>
+                <input type="text" id="boDataArea" name="boDataArea" required>
+
+                <label for="custSegFlg">Customer Segment Flag:</label>
+                <input type="text" id="custSegFlg" name="custSegFlg" required>
+
+                <label for="custTierFlg">Customer Tier Flag:</label>
+                <input type="text" id="custTierFlg" name="custTierFlg" required>
+
+                <label for="srcSystemCd">Source System Code:</label>
+                <input type="text" id="srcSystemCd" name="srcSystemCd" required>
+
+                <label for="relMgr">Relationship Manager:</label>
+                <input type="text" id="relMgr" name="relMgr" required>
+
+                <label for="imRefundSw">IM Refund SW:</label>
+                <input type="text" id="imRefundSw" name="imRefundSw" required>
+                
+                <!-- Add input fields for other columns in the contact information section -->
+
+        </div>
+
+        <!-- Relations Section -->
+        <div class="form-section" id="relationsTab">
+            <h3>Relations</h3>
+        
+                <label for="ciPerId">CI Per ID:</label>
+                <input type="text" id="ciPerId" name="ciPerId" required>
+
+                <label for="idTypeCd">ID Type Code:</label>
+                <input type="text" id="idTypeCd" name="idTypeCd" required>
+
+                <label for="perIdNbr">Per ID Number:</label>
+                <input type="text" id="perIdNbr" name="perIdNbr" required>
+
+                <label for="primSw">Primary SW:</label>
+                <input type="text" id="primSw" name="primSw" required>
+
+                <label for="versionRelations">Version:</label>
+                <input type="text" id="versionRelations" name="versionRelations" required>
+
+                <label for="perNameSeqNum">Per Name Seq Num:</label>
+                <input type="text" id="perNameSeqNum" name="perNameSeqNum" required>
+
+                <label for="entityName">Entity Name:</label>
+                <input type="text" id="entityName" name="entityName" required>
+
+                <label for="nameTypeFlg">Name Type Flag:</label>
+                <input type="text" id="nameTypeFlg" name="nameTypeFlg" required>
+
+                <label for="versionName">Version:</label>
+                <input type="text" id="versionName" name="versionName" required>
+
+                <label for="primNameSw">Primary Name SW:</label>
+                <input type="text" id="primNameSw" name="primNameSw" required>
+
+                <label for="perPerId">Per Per ID:</label>
+                <input type="text" id="perPerId" name="perPerId" required>
+
+                <label for="perId1">Per ID 1:</label>
+                <input type="text" id="perId1" name="perId1" required>
+
+                <label for="perId2">Per ID 2:</label>
+                <input type="text" id="perId2" name="perId2" required>
+
+                <label for="perRelTypeCd">Per Rel Type Code:</label>
+                <input type="text" id="perRelTypeCd" name="perRelTypeCd" required>
+
+                <label for="startDt">Start Date:</label>
+                <input type="text" id="startDt" name="startDt" required>
+
+                <label for="endDt">End Date:</label>
+                <input type="text" id="endDt" name="endDt" required>
+
+                <label for="versionRelations2">Version:</label>
+                <input type="text" id="versionRelations2" name="versionRelations2" required>
+
+                <label for="finanRelSw">Financial Relation SW:</label>
+                <input type="text" id="finanRelSw" name="finanRelSw" required>
+
+                <!-- Add input fields for other columns in the relations section -->
+
+        </div>
+
+      <!-- PerName Section -->
+<div class="form-section" id="perNameTab">
+    <h3>PerName</h3>
+
+        <label for="perId">PER_ID:</label>
+        <input type="text" id="perId" name="perId" required>
+
+        <label for="seqNum">SEQ_NUM:</label>
+        <input type="text" id="seqNum" name="seqNum" required>
+
+        <label for="entityName">ENTITY_NAME:</label>
+        <input type="text" id="entityName" name="entityName" required>
+
+        <label for="nameTypeFlg">NAME_TYPE_FLG:</label>
+        <input type="text" id="nameTypeFlg" name="nameTypeFlg" required>
+
+        <label for="version">VERSION:</label>
+        <input type="text" id="version" name="version" required>
+
+        <label for="primNameSw">PRIM_NAME_SW:</label>
+        <input type="text" id="primNameSw" name="primNameSw" required>
+
+        <label for="entityNameUpr">ENTITY_NAME_UPR:</label>
+        <input type="text" id="entityNameUpr" name="entityNameUpr" required>
+
+        <!-- Add input fields for other columns in the PerName section -->
+
+</div>
+
+   <!-- Common Submit Button -->
+   <button type="submit">Submit</button>
+
+   <!-- Common Cancel Button -->
+   <button class="cancel" onclick="cancelForm()">Cancel</button>
+</form>
+
+
+
+    </div>
+
+    <script>
+        function openTab(tabName) {
+            var i, tabcontent;
+            tabcontent = document.getElementsByClassName("form-section");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            document.getElementById(tabName).style.display = "block";
+        }
+
+        function cancelForm() {
+            // Implement cancel logic here if needed
+            alert("Form cancelled!");
+        }
+    </script>
+
+</body>
+</html>
+

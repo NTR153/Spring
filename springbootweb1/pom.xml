@@ -10,11 +10,11 @@
 	</parent>
 	<groupId>com.ntr153.telusko</groupId>
 	<artifactId>springbootweb1</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>springbootweb1</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Spring Boot Web Demo</description>
 	<properties>
-		<java.version>22</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -27,6 +27,17 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+		<!-- <dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jasper</artifactId>
+			<version>10.1.24</version>
+		</dependency> -->
 	</dependencies>
 
 	<build>
@@ -37,5 +48,8 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<packaging>war</packaging>
+
 
 </project>

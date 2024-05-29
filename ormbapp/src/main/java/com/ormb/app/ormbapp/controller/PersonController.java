@@ -2,8 +2,6 @@ package com.ormb.app.ormbapp.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ormb.app.ormbapp.entities.Person;
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 

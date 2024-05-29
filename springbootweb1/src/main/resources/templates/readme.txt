@@ -1,2 +1,2 @@
-This location is default location for thymleaf htmls.
+This location is default location for thymeleaf htmls.
 Worked :)

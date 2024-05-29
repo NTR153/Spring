@@ -19,6 +19,7 @@ public class PersonServiceImpl {
 
     Map<String, String> respMap = new HashMap<>();
 
+    @SuppressWarnings("unused")
     private Map<String, String> addPerson(Person person){
         personRepositoryInterface.save(person);
         respMap.put("message", "Employee Added Successfully");

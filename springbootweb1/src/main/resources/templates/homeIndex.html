@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" th:lang="${#locale.language}">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Telusko Calculator (Static)</title>
+</head>
+
+<body>
+    <h2>Telusko Calculator (Static)</h2>
+
+    <form id="operationForm" action="add">
+        <label for="num1">Enter 1st Number :</label>
+        <input type="text" id="num1" name="num1"><br>
+        <label for="num2">Enter 2nd Number :</label>
+        <input type="text" id="num2" name="num2"><br>
+        <input type="submit" value="Add">
+        <input type="submit" value="Subtract">
+        <input type="submit" value="Multiply">
+    </form>
+
+    <script>
+        document.getElementById('operationForm').addEventListener('submit', function(event) {
+            var operation = event.submitter.value; // Get the value of the clicked button
+            if (operation === 'Add') {
+                this.action = 'add'; // Set the form action to the 'add' controller method
+            } else if (operation === 'Subtract') {
+                this.action = 'subtract'; // Set the form action to the 'subtract' controller method
+            } else if (operation === 'Multiply') {
+                this.action = 'multiply'; // Set the form action to the 'multiple' controller method
+            }
+        });
+    </script>
+</body>
+
+</html>

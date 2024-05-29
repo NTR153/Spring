@@ -9,7 +9,8 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void configureViewResolvers(@SuppressWarnings("null") ViewResolverRegistry registry) {
-        registry.jsp("/WEB-INF/jsp/", ".jsp");
+        // registry.jsp("/WEB-INF/jsp/", ".jsp");
+        // System.out.println("In configure View");
         // This location was configured for jsp to override any and every property.
         // But didn't work :(
     }

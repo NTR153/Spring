@@ -1,2 +1,2 @@
-This location is default location for thymleaf css.
+This location is default location for thymeleaf css.
 Worked :)

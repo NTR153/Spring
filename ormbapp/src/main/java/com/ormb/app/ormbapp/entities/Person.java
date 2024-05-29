@@ -1,10 +1,9 @@
 package com.ormb.app.ormbapp.entities;
 
-import javax.annotation.Generated;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Person {
@@ -13,8 +12,11 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Assuming you want an auto-generated ID
     private Long perId;
 
+    @SuppressWarnings("unused")
     private String fName;
+    @SuppressWarnings("unused")
     private String lName;
+    @SuppressWarnings("unused")
     private String perIdCode;
 
     

@@ -108,3 +108,18 @@ Model View Controller (MVC) uses Objects (Models) to get the data.
 The flow being Client <-> Server (Controller [Servlet] -> Model [POJO] -> View [JSP]) <-> Database. 
 Note: JSP is also called by the controller.
 In Tomcat "Server/Servlet Container", the JSP is converted to Servlet to be able to run it.
+
+Note: For Spring MVC, we need to configure Dispatcher Servlet in "web-app" in "webapp/WEB-INF/web.xml" -
+<!-- 
+<servlet>
+    <servlet-name>telusko</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>telusko</servlet-name>
+    <url-pattern>/</url-pattern>
+</servlet-mapping> 
+-->
+
+telusko-servlet is necessary for Dispatcher Servlet to work find it in webapp/WEB-INF.

@@ -1,11 +1,7 @@
-package com.ntr153.telusko.springbootweb1.controller;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+package com.ntr153.telusko.springmvc1.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,20 +13,23 @@ public class HomeController {
 	@GetMapping("/")
 	public String home() {
         System.out.println("Home method called");
-		return "homeIndex";
+		return "index";
 	}
 	
 	// http://localhost:8080/add?num1=5&num2=6
 	@GetMapping("add")
-	public String add(HttpServletRequest req,HttpSession session) {
+	// public String add(HttpServletRequest req,HttpSession session) {
+	public String add(int num1, int num2, Model model) {
 		
-		int num1=Integer.parseInt(req.getParameter("num1"));
-		int num2=Integer.parseInt(req.getParameter("num2"));
+		// int num1=Integer.parseInt(req.getParameter("num1"));
+		// int num2=Integer.parseInt(req.getParameter("num2"));
 		int result=num1+num2;
 		
-		session.setAttribute("additionResult", result);
+		// session.setAttribute("additionResult", result);
+		model.addAttribute("additionResult", result);
 		
-		System.out.println("Add - " + session.getAttribute("additionResult"));
+		// System.out.println("Add - " + session.getAttribute("additionResult"));
+		System.out.println("Add - " + model.getAttribute("additionResult"));
 		
 		return "additionResult";
 	}

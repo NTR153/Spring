@@ -123,3 +123,8 @@ Note: For Spring MVC, we need to configure Dispatcher Servlet in "web-app" in "w
 -->
 
 telusko-servlet is necessary for Dispatcher Servlet to work find it in webapp/WEB-INF.
+
+## spring-boot-rest and JOBPORTAL-1
+
+Note: com.fasterxml.jackson.core:jackson-core is responsible for conversion of List<JobPost> to json
+      com.fasterxml.jackson.dataformat:jackson-dataformat-xml is responsible for conversion of List<JobPost> to xml

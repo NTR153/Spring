@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SpringBootRestApplication",
+            "request": "launch",
+            "mainClass": "com.telusko.springbootrest.SpringBootRestApplication",
+            "projectName": "spring-boot-rest"
+        },
+        {
+            "type": "java",
             "name": "OrmbappApplication",
             "request": "launch",
             "mainClass": "com.ormb.app.ormbapp.OrmbappApplication",

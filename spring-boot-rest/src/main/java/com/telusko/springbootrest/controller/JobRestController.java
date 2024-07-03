@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.telusko.springbootrest.model.JobPost;
 import com.telusko.springbootrest.service.JobService;
 
+
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class JobRestController {
@@ -51,4 +52,19 @@ public class JobRestController {
 		return "Deleted";
 	}
 
+	/*
+	 * After oracleSql connection
+	 */
+	@GetMapping("jobPosts/loadSampleData")
+	public String loadData() {
+		service.load();
+		return "success";
+	}
+
+	@GetMapping("jobPost/keyword/{keyword}")
+	public List<JobPost> searchByKeyword(@PathVariable("keyword") String keyword) {
+		return service.searchByKeyword(keyword);
+	}
+	
+	
 }

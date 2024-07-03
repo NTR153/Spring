@@ -124,7 +124,31 @@ Note: For Spring MVC, we need to configure Dispatcher Servlet in "web-app" in "w
 
 telusko-servlet is necessary for Dispatcher Servlet to work find it in webapp/WEB-INF.
 
-## spring-boot-rest and JOBPORTAL-1
+##### spring-boot-rest and JOBPORTAL-1
 
 Note: com.fasterxml.jackson.core:jackson-core is responsible for conversion of List<JobPost> to json
       com.fasterxml.jackson.dataformat:jackson-dataformat-xml is responsible for conversion of List<JobPost> to xml
+
+There can be multiple ways to work with Database -
+1. Normal JDBC
+2. Spring JDBC (embedded)
+3. Spring ORM (lot of coding) - 
+    ORM -> Object Relational Mapping.
+    Used for mapping objects to tables.
+    Hibernate, Toplink, Eclipse Link are few of ORM tools.
+    Spring ORM and Hibernate both implements JPA.
+4. Spring Data JPA (easiest) -
+    JPA -> Java Persistence API.
+    JPA is a specification that allows switching between ORM tools easily.
+    Spring Data JPA uses Hibernate.
+    JPA uses JPQL (JPA Query Language) for custom queries.
+    It also uses DSL (Domain Specific Language) for creating queries behind the scene, such as equals or greater than and less than.
+            Which are defined in the Custom Repo Interface (which extends JpaRepository<objectName, primaryIdentifierDataType>).
+    Note: for oracle sql database, the code sets list data as -
+            C##NTR153.STRINGARRAY('Core Java', 'J2EE', 'Spring Boot', 'Hibernate') instead of
+            {'Core Java', 'J2EE', 'Spring Boot', 'Hibernate'}  (plsql example from the course)
+            C##NTR153 being the userName. This maybe Database Vendor (oracleSql) specific    
+
+Types of Databases - 
+    a. Relational
+    b. NoSQL (eg. Cassandra -> uses CQL i.e. Cassandra Query Language, MongoDb)

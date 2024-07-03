@@ -1,3 +1,5 @@
+// This class was being used for in-app database (list based).
+
 package com.telusko.springbootrest.repo;
 
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.telusko.springbootrest.model.JobPost;
 
 @Repository
-public class JobRepo {
+public class JobRepo1 {
 
 	// arrayList to store store JobPost objects
 	List<JobPost> jobs = new ArrayList<>();
@@ -17,7 +19,7 @@ public class JobRepo {
 	// ****************************************************************************
 
 	// constructor->injecting objects into ArrayList defined above.
-	public JobRepo() {
+	public JobRepo1() {
 
 		// Java Developer Job Post
 		jobs.add(new JobPost(1, "Java Developer", "Must have good experience in core Java and advanced Java", 2,

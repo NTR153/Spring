@@ -2,12 +2,19 @@ package com.telusko.springbootrest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.telusko.springbootrest.service.JobService;
 
 @SpringBootApplication
 public class SpringBootRestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootRestApplication.class, args);
+		ApplicationContext context = SpringApplication.run(SpringBootRestApplication.class, args);
+
+		JobService service = context.getBean(JobService.class);
+
+		System.out.println("NTR153 searchByKeyword : " + service.searchByKeyword("Java"));
 	}
 
 }

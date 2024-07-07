@@ -1,6 +1,6 @@
 // This class was being used for in-app database (list based).
 
-package com.telusko.springbootrest.repo;
+package com.ntr153.telusko.springbootrest.repo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.telusko.springbootrest.model.JobPost;
+import com.ntr153.telusko.springbootrest.model.JobPost;
 
 @Repository
 public class JobRepo1 {

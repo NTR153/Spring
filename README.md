@@ -152,3 +152,25 @@ There can be multiple ways to work with Database -
 Types of Databases - 
     a. Relational
     b. NoSQL (eg. Cassandra -> uses CQL i.e. Cassandra Query Language, MongoDb)
+
+OOP - Object Orientend Programming
+AOP - Aspect Oriented Programming (Compliments OOP), overcomes cross-cutting concerns 
+            i.e. concerns appearing at multiple places
+    - AOP can be used for logging, security, validations, transaction management.
+
+AOP Concepts (comparing with a movie) -
+    - Join Point (When) eg. function load
+    - Advice (What) eg. logging
+    - Aspect (Where-Conceptual) eg. in a LoggingAspect class
+    - Pointcut (Where-Operational) this is Join Points (scenes) where Advice (plot twists) happen. It's like a bookmark.
+    - Target Object (Whom)
+    - Weaving (How) this happens at runtime. AspectJ based AOP goes into compile time
+    - Proxy (The Double)
+    - Type of Advice (The Genre)
+        - Before
+        - After (finally)
+        - After Returning (try)
+        - After Throwing (exception)
+        - Around (before and after) eg. to check time for execution
+
+For Aspect concepts, check spring-boot-rest/aspects

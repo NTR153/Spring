@@ -1,10 +1,10 @@
-package com.telusko.springbootrest;
+package com.ntr153.telusko.springbootrest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import com.telusko.springbootrest.service.JobService;
+import com.ntr153.telusko.springbootrest.service.JobService;
 
 @SpringBootApplication
 public class SpringBootRestApplication {

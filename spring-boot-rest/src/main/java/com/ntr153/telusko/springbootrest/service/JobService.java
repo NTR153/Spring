@@ -1,4 +1,4 @@
-package com.telusko.springbootrest.service;
+package com.ntr153.telusko.springbootrest.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,9 +7,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.telusko.springbootrest.model.JobPost;
-import com.telusko.springbootrest.repo.JobRepo1;
-import com.telusko.springbootrest.repo.JobRepo2;
+import com.ntr153.telusko.springbootrest.model.JobPost;
+import com.ntr153.telusko.springbootrest.repo.JobRepo1;
+import com.ntr153.telusko.springbootrest.repo.JobRepo2;
 
 @Service
 public class JobService {

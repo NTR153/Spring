@@ -1,4 +1,4 @@
-package com.telusko.springbootrest.controller;
+package com.ntr153.telusko.springbootrest.controller;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.telusko.springbootrest.model.JobPost;
-import com.telusko.springbootrest.service.JobService;
+import com.ntr153.telusko.springbootrest.model.JobPost;
+import com.ntr153.telusko.springbootrest.service.JobService;
 
 
 @RestController

@@ -2,6 +2,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LoggingAspect",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.springbootrest.LoggingAspect",
+            "projectName": "spring-boot-rest"
+        },
+        {
+            "type": "java",
+            "name": "SpringBootRestApplication",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.springbootrest.SpringBootRestApplication",
+            "projectName": "spring-boot-rest"
+        },
+        {
+            "type": "java",
+            "name": "SpringDataRestApplication",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.spring_data_rest.SpringDataRestApplication",
+            "projectName": "spring-data-rest"
+        },
+        {
+            "type": "java",
+            "name": "demoJDBC",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.demoJDBC",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.Main",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "SpringDataJpaApplication",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.spring_data_jpa.SpringDataJpaApplication",
+            "projectName": "spring-data-jpa"
+        },
+        {
+            "type": "java",
             "name": "SpringBootRestApplication",
             "request": "launch",
             "mainClass": "com.telusko.springbootrest.SpringBootRestApplication",

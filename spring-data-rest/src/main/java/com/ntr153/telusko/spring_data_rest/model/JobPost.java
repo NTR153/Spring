@@ -1,4 +1,4 @@
-package com.telusko.springbootrest.model;
+package com.ntr153.telusko.spring_data_rest.model;
 
 import java.util.List;
 

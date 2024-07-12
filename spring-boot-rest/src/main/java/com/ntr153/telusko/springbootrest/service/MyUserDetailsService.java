@@ -1,4 +1,4 @@
-package com.ntr153.telusko.spring_sec_demo.service;
+package com.ntr153.telusko.springbootrest.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,9 +6,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.ntr153.telusko.spring_sec_demo.model.User;
-import com.ntr153.telusko.spring_sec_demo.model.UserPrincipal;
-import com.ntr153.telusko.spring_sec_demo.repo.UserRepo;
+import com.ntr153.telusko.springbootrest.model.User;
+import com.ntr153.telusko.springbootrest.model.UserPrincipal;
+import com.ntr153.telusko.springbootrest.repo.UserRepo;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {

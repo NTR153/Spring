@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ntr153.telusko.springbootrest.model.JobPost;
-import com.ntr153.telusko.springbootrest.repo.JobRepo1;
+// import com.ntr153.telusko.springbootrest.repo.JobRepo1;
 import com.ntr153.telusko.springbootrest.repo.JobRepo2;
 
 @Service

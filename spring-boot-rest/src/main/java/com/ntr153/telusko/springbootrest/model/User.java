@@ -1,4 +1,4 @@
-package com.ntr153.telusko.spring_sec_demo.model;
+package com.ntr153.telusko.springbootrest.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

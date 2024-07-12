@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SpringSecDemoApplication",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.spring_sec_demo.SpringSecDemoApplication",
+            "projectName": "spring-sec-demo"
+        },
+        {
+            "type": "java",
             "name": "LoggingAspect",
             "request": "launch",
             "mainClass": "com.ntr153.telusko.springbootrest.LoggingAspect",

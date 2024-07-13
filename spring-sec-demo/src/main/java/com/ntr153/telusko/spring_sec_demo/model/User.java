@@ -14,9 +14,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class User {
 
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)     // creates id automatically, but must be a part of primary key
     private int id;
     @Id
     private String username;
     private String password;
     private String role;
+    
 }

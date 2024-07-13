@@ -3,9 +3,11 @@ package com.ntr153.telusko.spring_sec_demo.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -27,14 +29,17 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         
-        httpSecurity.csrf(customizer -> customizer.disable());      
+        httpSecurity.csrf(customizer -> customizer.disable());
                 // disable csrf
-        httpSecurity.authorizeHttpRequests(request -> request.anyRequest().authenticated());    
+        httpSecurity.authorizeHttpRequests(request -> request
+                                                .requestMatchers("registerUser", "login")
+                                                .permitAll()            // to permit user registration without requiring login
+                                                .anyRequest().authenticated());    
                 // enabling security for the requests
                 // even with above line, the site won't work
         // httpSecurity.formLogin(Customizer.withDefaults());
                 // to enable site login
-        httpSecurity.httpBasic(Customizer.withDefaults());      
+        httpSecurity.httpBasic(Customizer.withDefaults());
                 // to enable postman API's
         httpSecurity.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
                 // making the project stateless i.e. different session id everytime
@@ -67,6 +72,9 @@ public class SecurityConfig {
 //         return new InMemoryUserDetailsManager(userdetails, adminDetails);     // multiple user details can be passed as csv
 //     }
 
+    /*
+     * Validation of credentials from db
+     */
     @Autowired
     private UserDetailsService daoUserDetailsService;
 
@@ -79,5 +87,13 @@ public class SecurityConfig {
         provider.setPasswordEncoder(new BCryptPasswordEncoder(BCryptVersion.$2A, 12));
 
         return provider;
+    }
+
+    /*
+     * For JWT (Json Web Token)
+     */
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
     }
 }

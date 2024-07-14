@@ -129,17 +129,15 @@ Note: JSP is also called by the controller.
 In Tomcat "Server/Servlet Container", the JSP is converted to Servlet to be able to run it.
 
 Note: For Spring MVC, we need to configure Dispatcher Servlet in "web-app" in "webapp/WEB-INF/web.xml" -
-<!-- 
-<servlet>
-    <servlet-name>telusko</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-</servlet>
+    <servlet>
+        <servlet-name>telusko</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    </servlet>
 
-<servlet-mapping>
-    <servlet-name>telusko</servlet-name>
-    <url-pattern>/</url-pattern>
-</servlet-mapping> 
--->
+    <servlet-mapping>
+        <servlet-name>telusko</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping> 
 
 telusko-servlet is necessary for Dispatcher Servlet to work find it in webapp/WEB-INF.
 
@@ -294,5 +292,10 @@ JWT (Json Web Token)
     - can be an XML or JSON, also has expire dttm
     - algorithms include HS... (only one secret key), RS... (private and public key) for client and server
     - io.jsonwebtoken.jjwt-api (api) and io.jsonwebtoken.jjwt-impl (implementation) and io.jsonwebtoken.jjwt-jackson (json conversion) to be used for creating jwt in the project spring-sec-demo
+    - try "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJudHIxNTMiLCJpYXQiOjE3MjA5MDUwNTYsImV4cCI6MTcyMDkwNTIzNn0.wq0xKCeElqxPiemgCjj0zQJ5JGZArsRxoZqjDxYnidY" as Encoded text, with Algorithm HS256 on https://jwt.io/ to visualize the token.
+    - properties related to jwt are called claims (Check io.jsonwebtoken.Claims)
 
-    - 
+    - KeyGenerator is used to create a secret key, encode it and that again is used to generate a token in JwtService
+        The token is returned as a string in the login method and the same token can be used to access services.
+
+    - need to have a once per request filter JwtFilter to validate the token and authorize the request    

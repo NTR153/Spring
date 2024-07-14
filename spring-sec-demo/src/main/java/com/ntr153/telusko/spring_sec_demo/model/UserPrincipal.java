@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class UserPrincipal implements UserDetails{
+public class UserPrincipal implements UserDetails {
 
     private User user;
 
@@ -32,7 +32,7 @@ public class UserPrincipal implements UserDetails{
 
     @Override
     public String getUsername() {
-        return user.getPassword();
+        return user.getUsername();
     }
     
 }

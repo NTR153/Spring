@@ -19,13 +19,22 @@ import org.springframework.security.web.SecurityFilterChain;
 // import org.springframework.security.core.userdetails.UserDetails;
 // import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 // import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    // Client <-> Servlet Container <-> Security Filter1 <-> Sercurity Filter2 <-> .... <-> servlet
-    // the abover security filter chain, we are configuring it here
+    @Autowired
+    private UserDetailsService daoUserDetailsService;
+
+    @Autowired
+    private JwtFilter jwtFilter;
+
+    /*
+     * Client <-> Servlet Container <-> Security Filter1 <-> Sercurity Filter2 <-> .... <-> servlet
+     * the abover security filter chain, we are configuring it here
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         
@@ -47,11 +56,14 @@ public class SecurityConfig {
                 // because everytime we search for any address, we will get login page only as session id changes
                 // disabling the formLogic will not disable authentication itself. 
                 // It'll will provide us a popup for username and password on the ui.
-
+        httpSecurity.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+                // adding jwt checking filter before every service/request
         return httpSecurity.build();
     }
 
-    // Removing dependency on application.properties for authorizing logins and uses UserDetails for credential verification
+    /*
+     * Removing dependency on application.properties for authorizing logins and uses UserDetails for credential verification
+     */
 //     @Bean
 //     public UserDetailsService inMemoryUserDetailsService() {
 
@@ -75,9 +87,6 @@ public class SecurityConfig {
     /*
      * Validation of credentials from db
      */
-    @Autowired
-    private UserDetailsService daoUserDetailsService;
-
     @Bean
     public AuthenticationProvider authenticationProvider() {
         

@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SpringOAuthDemoApplication",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.spring_oauth_demo.SpringOAuthDemoApplication",
+            "projectName": "spring-oauth-demo"
+        },
+        {
+            "type": "java",
+            "name": "SpringOauthDemoApplication",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.spring_oauth_demo.SpringOauthDemoApplication",
+            "projectName": "spring-oauth-demo"
+        },
+        {
+            "type": "java",
             "name": "SpringSecDemoApplication",
             "request": "launch",
             "mainClass": "com.ntr153.telusko.spring_sec_demo.SpringSecDemoApplication",

@@ -5,6 +5,13 @@
             "name": "SpringOAuthDemoApplication",
             "request": "launch",
             "mainClass": "com.ntr153.telusko.spring_oauth_demo.SpringOAuthDemoApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "SpringOAuthDemoApplication",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.spring_oauth_demo.SpringOAuthDemoApplication",
             "projectName": "spring-oauth-demo"
         },
         {

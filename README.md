@@ -308,4 +308,55 @@ Open Authorization (OAuth) -
     - OAuth is verifying the user using third party such as Google
     - Current version is OAuth2
     - behind the scene, OAuth2 Client implements Spring Security. Hence, we get a login form by default
-    - in order to have an OAuth login in our page, we need to create a custom SecurityFilterChain and go to https://cloud.google.com/cloud-console/ -> Try It Free/Go To Console -> Three bars -> APIs and services -> OAuth consent screen (set consent) -> Credentials -> Web Application, set project name, Add Authorized redirect URIs to http://localhost:8080/login/oauth2/code/google -> Create -> Copy Client ID and Client secret -> set these in application.properties
+    
+    - in order to have a Google OAuth login in our page, we need to create a custom SecurityFilterChain and go to https://cloud.google.com/cloud-console/ -> Try It Free/Go To Console -> Three bars -> APIs and services -> OAuth consent screen (set consent) -> Credentials -> Web Application, set project name, Add Authorized redirect URIs to http://localhost:8080/login/oauth2/code/google -> Create -> Copy Client ID and Client secret -> set these in application.properties
+
+    - for Github OAuth login -> Go to Github -> settings -> Developer settings -> OAuth Apps -> configure Application name, homepage url (http://localhost:8080), Authorization callback URL (http://localhost:8080/login/oauth2/code/github) -> Register application -> copy the client id -> Generate a new client secret -> set these in application.properties
+
+#### Docker
+
+Virtualization
+    - Having a Hypervisor that manages Virtual Hardware and installs Guest OS on top of Stock OS
+    - eg. Hardware -> Host OS (Windows) -> Hypervisor (VM Ware) -> Guest OS (Ubuntu)
+    - In order to share the application/s, configurations, etc. we share the virtual os directly as an image file, so need to configure or setup explicitly in every application
+    - We can also have multiple OS's on same Hypervisor (Virtual Hardware), this is required when we need to have same application multiple times and avoid communication b/w them
+    - In order to tackle having to export whole os, we have:
+
+Containerization
+    - Hardware -> Host OS -> Docker -> Container/s
+    - example for containers include docker, podman
+    - provides safety, portability, consistency, speed, scalability
+
+Docker
+        - Docker engine, used for creating and managing containers, as user interaction
+        - provides containers, img of containers to export/transfer configs and apps
+        - docker file is used to create the img
+        - For storage, docker has Volumes
+        - Containers have their networking components
+
+    Docker Hub
+        - Compilers, Web Servers, Applications, etc. for Docker are available on docker hub
+
+    Docker Compose
+        - To have application running on multiple containers
+
+Command line -
+    - docker run {image_name}     -> checks for the image locally, if not present downloads it from docker hub, creates a 
+                                        container, runs it
+    - docker search {image_name}  -> searches on docker hub
+    - docker pull {image_name}    -> downloads the image
+    - docker images               -> list of images
+    - docker create {image_name}  -> creates a container for the image
+    - docker start {container_id} -> starts the container
+    - docker ps                   -> to get active containers
+    - docker pause {container_id} -> pause the container
+    - docker stop {container_id}  -> stops the container
+    - docker ps -a                -> all containers that ran previously
+    - docker rm {container_id}    -> removes container, container id changes every run
+    - docker rmi {image_id}       -> removes image
+    - docker help                 -> get help
+    - docker run -it {image_id}   -> to run an image in interactive mode eg. running jshell using openjdk.
+                                        image_name:version can also be used for the command
+
+Docker Architecture
+    - Docker Client (part of docker) <-> Docker (includes daemon (dockerd), images, containers, network components, volumes) <-> Registry

@@ -313,7 +313,7 @@ Open Authorization (OAuth) -
 
     - for Github OAuth login -> Go to Github -> settings -> Developer settings -> OAuth Apps -> configure Application name, homepage url (http://localhost:8080), Authorization callback URL (http://localhost:8080/login/oauth2/code/github) -> Register application -> copy the client id -> Generate a new client secret -> set these in application.properties
 
-#### Docker
+#### Docker - docker_rest_demo
 
 Virtualization
     - Having a Hypervisor that manages Virtual Hardware and installs Guest OS on top of Stock OS
@@ -340,7 +340,10 @@ Docker
     Docker Compose
         - To have application running on multiple containers
 
-Command line -
+Docker Architecture
+    - Docker Client (part of docker) <-> Docker (includes daemon (dockerd), images, containers, network components, volumes) <-> Registry    
+
+Docker Command line -
     - docker run {image_name}     -> checks for the image locally, if not present downloads it from docker hub, creates a 
                                         container, runs it
     - docker search {image_name}  -> searches on docker hub
@@ -358,5 +361,36 @@ Command line -
     - docker run -it {image_id}   -> to run an image in interactive mode eg. running jshell using openjdk.
                                         image_name:version can also be used for the command
 
-Docker Architecture
-    - Docker Client (part of docker) <-> Docker (includes daemon (dockerd), images, containers, network components, volumes) <-> Registry
+    specific to openjdk 
+        - docker exec {contaner_name} ls -a                     -> lists all the folders within jdk
+
+        Steps for creating an image with command "java -jar /tmp/docker_rest_demo.jar"
+            
+            - docker cp {relative_jar_path} {container_name}:/tmp   -> copies jar to currently running containers' tmp folder
+            - docker commit {container_name} {image_name}:{tag}     -> creates .img for the container, tag is version
+            - docker commit -c='CMD ["java","-jar","/tmp/docker_rest_demo.jar"]' {container_name} {image_name}:{v1}
+                    -> change default command from jshell to running the springboot project for image being saved
+            - docker run {ntr153/telusko/docker_rest_demo}:{v1}         -> run the project
+
+        If above method does not work, in order to update the jar -> create a docker file (see Dockerfile for reference) and run
+
+            - docker build -t ntr153/telusko/docker_rest_demo:v1 .
+                    This command tells Docker to build an image from the Dockerfile in the current directory (.)
+            - docker run -p 8080:8080 ntr153/telusko/docker_rest_demo:v1
+                    This will expose the docker port to the machine port
+
+    - docker exec -it {container_name} bash                             -> to get interactive cmd for the container
+    - docker image inspect {ntr153/telusko/docker_rest_demo}:{v1}       -> inspect image
+
+#### Docker Compose - docker_student_app
+    - Helps with running multiple containers for a single project
+    - for docker compose configuration, we need docker-compose.yml
+    - we also need to edit credentials in application.properties within the project and make it same as docker-compose config
+
+    - mvn clean package
+    - mvn clean package -DskipTests -> skips tests
+    - docker-compose up --build     -> to build the image, based on dockerfile
+    - docker-compose down           -> to remove containers created by the image, based on dockerfile
+
+    - docker exec -it docker_student_app-postgres-1 bash    -> to enter interactive mode of postgres container
+    - psql -U telusko -h localhost -p 5432                  -> to enter psql

@@ -1,0 +1,54 @@
+# version: '3.7'
+
+services:
+  student:
+    build: .          # gets docker file from desired path
+    ports:
+      - "8080:8080"   # used for exposing host -> hostPortNo : containerPortNumber
+    depends_on:
+      # - oracle-db
+        - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/telusko
+      SPRING_DATASOURCE_USERNAME: telusko
+      SPRING_DATASOURCE_PASSWORD: 0000
+      # why are these creds required?
+    networks:
+      - student-network       # this network will be used by the container, need to be mentioned for both containers
+                              # network is defined below
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: telusko
+      POSTGRES_PASSWORD: 0000
+      POSTGRES_DB: telusko
+      # POSTGRES_GROUP: postgres_users    # this group includes both postgres, telusko. 
+                                        # This is to avoid default user as postgres. 
+                                        # We can also remove postgres from the user group
+    # group_add: 
+    #   - postgres_users  # Add container user to the group on the host  
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_student_data:/var/lib/postgresql/data  # Persist data volume for postgres
+    networks:
+      - student-network
+  
+  # oracle-db:
+  #   image: 'oracle/database-xe:23.1.0'
+  #   environment:
+  #     - ORACLE_SID: C##NTR153
+  #     - ORACLE_PASSWORD: 0000
+  #   ports:
+  #     - "1522:1522"
+  #   networks:
+  #     - student-network       # this network will be used by the container, need to be mentioned for both containers
+  #                             # network is defined below
+
+networks:
+  student-network:    # defining a network
+    driver: bridge    # use 'docker network ls' for getting available networks and drivers
+
+volumes:
+  postgres_student_data: {}  # Define an empty volume for postgres data, optional

@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DockerStudentAppApplication",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.docker_student_app.DockerStudentAppApplication",
+            "projectName": "docker_student_app"
+        },
+        {
+            "type": "java",
+            "name": "DockerRestDemoApplication",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.docker_rest_demo.DockerRestDemoApplication",
+            "projectName": "docker_rest_demo"
+        },
+        {
+            "type": "java",
             "name": "SpringOAuthDemoApplication",
             "request": "launch",
             "mainClass": "com.ntr153.telusko.spring_oauth_demo.SpringOAuthDemoApplication",

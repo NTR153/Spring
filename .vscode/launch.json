@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AwsWebAppApplication",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.aws_web_app.AwsWebAppApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "DockerStudentAppApplication",
             "request": "launch",
             "mainClass": "com.ntr153.telusko.docker_student_app.DockerStudentAppApplication",

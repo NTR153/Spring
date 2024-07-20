@@ -1,7 +1,6 @@
 package com.ntr153.telusko.spring_sec_demo.security;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -12,15 +11,9 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.ntr153.telusko.spring_sec_demo.model.User;
 import com.ntr153.telusko.spring_sec_demo.service.JwtService;
 import com.ntr153.telusko.spring_sec_demo.service.MyUserDetailsService;
 
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.UnsupportedJwtException;
-import io.jsonwebtoken.io.DecodingException;
-import io.jsonwebtoken.security.SecurityException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -38,6 +31,7 @@ public class JwtFilter extends OncePerRequestFilter { // once per request/servic
     @Autowired
     ApplicationContext context;
 
+    @SuppressWarnings("null")
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {

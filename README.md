@@ -394,3 +394,99 @@ Docker Command line -
 
     - docker exec -it docker_student_app-postgres-1 bash    -> to enter interactive mode of postgres container
     - psql -U telusko -h localhost -p 5432                  -> to enter psql
+
+#### Cloud
+
+Cloud Computing
+    - Cloud is a combination of multiple services
+    - eg. AWS, Microsoft Cloud, Google Cloud, Azure, WillHat, IBM.
+
+Elastic Cloud Computing
+    - Resources/servers expand on requirement
+
+On-Premise
+    - On Local Machine
+        Functions
+        Applications
+        Runtime and containers
+        Operating Systems and management tools
+        Networking, storage and servers
+        Data Centre
+
+IaaS (Infrastructure)
+    - On Local Machine
+        Functions
+        Applications
+        Runtime and containers
+        Operating Systems and management tools
+    
+    - On Service Provider end
+        Networking, storage and servers
+        Data Centre
+
+CaaS (Container)
+    - On Local Machine
+        Functions
+        Applications
+        Runtime and containers
+    
+    - On Service Provider end
+        Operating Systems and management tools
+        Networking, storage and servers
+        Data Centre
+
+PaaS (Platform)
+    - On Local Machine
+        Functions
+        Applications
+    
+    - On Service Provider end
+        Runtime and containers
+        Operating Systems and management tools
+        Networking, storage and servers
+        Data Centre
+
+FaaS (Function)
+    - On Local Machine
+        Functions
+    
+    - On Service Provider end
+        Applications
+        Runtime and containers
+        Operating Systems and management tools
+        Networking, storage and servers
+        Data Centre
+
+SaaS (Software)
+    - On Service Provider end
+        Functions
+        Applications
+        Runtime and containers
+        Operating Systems and management tools
+        Networking, storage and servers
+        Data Centre
+
+Private Cloud
+    - By default, any cloud is a public cloud, i.e. anyone can access the cloud. 
+    - There can be security risks in case of sensitive data. eg. banks, finances
+    - To resolve this, we have private cloud that a company has under within it's wall
+    - Advantage - Security, Drawback - Cost beacause now, we have to manage the servers, data centres, everything
+
+Hybrid Cloud
+    - Some data on private cloud, some on public cloud
+
+AWS
+    - EC2 (Elastic Computing) (IaaS)
+    - Elastic Beanstalk (PaaS). This uses EC2 behind the scene
+    - Elastic Kubernetes Service, Elastic Container Service (AWS based, simpler than EKS) (CaaS)
+    - Elastic Container Registry (For storing Docker Images)
+    
+IAM (Identity and Access Management)-
+    - Used to avoid using root account, to create a sub account
+    - Need to create User Group (dev1) -> User (ntr153_telusko)
+    - https://730335428275.signin.aws.amazon.com/console ntr153_telusko/NTRathod4978
+
+Elastic Beanstalk
+    - We'll be creating an Elastic Beanstalk project (aws_web_app)
+    - For this, we'll need a role under IAM. Role created as ec2Role having "AdministratorAccess", "AdministratorAccess-AWSElasticBeanstalk"
+    - 

@@ -12,7 +12,7 @@
 	<artifactId>spring-sec-demo</artifactId>
 	<version>0.0.1</version>
 	<name>spring-sec-demo</name>
-	<description>Demo project for Spring Security</description>
+	<description>Spring Security implemented using web, devtools</description>
 	<url/>
 	<licenses>
 		<license/>

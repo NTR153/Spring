@@ -12,7 +12,7 @@
 	<artifactId>docker_rest_demo</artifactId>
 	<version>0.0.1</version>
 	<name>docker_rest_demo</name>
-	<description>Run Spring Web Project in Docker openjdk using .jar packaging</description>
+	<description>Brief introduction to Docker, Images and Containers</description>
 	<url/>
 	<licenses>
 		<license/>

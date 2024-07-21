@@ -12,7 +12,7 @@
 	<artifactId>docker_student_app</artifactId>
 	<version>0.0.1</version>
 	<name>docker_student_app</name>
-	<description>Demo Student App Project for Docker</description>
+	<description>Using Docker Compose for Student app and Postgres database containers</description>
 	<url/>
 	<licenses>
 		<license/>

@@ -7,8 +7,8 @@
   <groupId>com.ntr153.telusko</groupId>
   <artifactId>servlet1</artifactId>
   <version>1.0</version>
-
   <name>servlet1</name>
+  <description>Http servlet functioning using jakarta servlet api and embedded Apache Tomcat</description>
   <!-- FIXME change it to the project's website -->
   <url>http://maven.apache.org</url>
 

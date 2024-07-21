@@ -17,23 +17,46 @@ Spring Framework and Spring Boot by Telusko (Navin Reddy)
     Microservices
 
 ### Projects - 
-    java - Basic, manual jdbc implemented
-    jobapp - views introduced
-    JOBPORTAL-1 - React UI for fake db (within project) and real db (oracleSQL) via springboot application/s
-        Note: Note: search by keyword not working
+    aws_web_app
+        - System info web app for working with Elastic Beanstalk
+    docker_rest_demo
+        - Brief introduction to Docker, Images and Containers
+    docker_student_app
+        - Using Docker Compose for Student app and Postgres database containers
+    java
+        - Jdbc implementation
+    jobapp
+        - Working with Thymeleaf and Introduction to Views
+    JOBPORTAL-1
+        - React UI for embedded and Oracle database
+        Note: search by keyword not working
     JOBPORTAL-2
-    ormbapp - basic working of springboot application, trying to replicate ormb
-    servlet1 - basic http servlet functioning using jakarta servlet api and embedded Apache Tomcat
-    spring-boot-rest - implementing model, controller, service, repo (both - normal and JPA based). Also used by JOBPORTAL-1.
-                    Aspect Oriented Programming introduced
-    spring-data-jpa - removed service, used methods provided by JpaRepository (DSL) for Student table. 
-    spring-data-rest - Job App accessed using Postman.
-    spring1 - used spring framework with both - xml based configuration and configuration class.
-        Used Alien, Computer, Desktop, Laptop like classes.
-    springboot1 - utilized springboot functionalities for above (spring1) project.
-    springbootweb1 - a thymeleaf based web project
-    springmvc1 - exploring model view controller
-    spring-sec-demo - spring security demo using web, devtools
+    ormbapp
+        - Working of Springboot application, replicating ormb
+    servlet1
+        - Http servlet functioning using jakarta servlet api and embedded Apache Tomcat
+    spring-boot-rest
+        - Implementing model, controller, service, repo (both - normal and JPA based)
+        - Also used by JOBPORTAL-1
+        - Aspect Oriented Programming introduced
+        - Worked with AWS RDS, ECR and ECS
+    spring-data-jpa
+        - interface repo implements JpaRepository (DSL)
+    spring-data-rest
+        - Working with Postman and RestController
+    spring-oauth-demo
+        - Google and Github OAuth2 based project
+    spring-sec-demo
+        - Spring Security implemented using web, devtools    
+    spring1
+        - Xml based and Class configuration for Spring Framework
+        - Used Alien, Computer, Desktop, Laptop like classes
+    springboot1
+        - Springboot functionalities utilized for spring1
+    springbootweb1
+        - Thymeleaf introduced
+    springmvc1
+        - Working with Model View Controller
 
 ### Notes -
 
@@ -328,17 +351,17 @@ Containerization
     - provides safety, portability, consistency, speed, scalability
 
 Docker
-        - Docker engine, used for creating and managing containers, as user interaction
-        - provides containers, img of containers to export/transfer configs and apps
-        - docker file is used to create the img
-        - For storage, docker has Volumes
-        - Containers have their networking components
+    - Docker engine, used for creating and managing containers, as user interaction
+    - provides containers, img of containers to export/transfer configs and apps
+    - docker file is used to create the img
+    - For storage, docker has Volumes
+    - Containers have their networking components
 
-    Docker Hub
-        - Compilers, Web Servers, Applications, etc. for Docker are available on docker hub
+Docker Hub
+    - Compilers, Web Servers, Applications, etc. for Docker are available on docker hub
 
-    Docker Compose
-        - To have application running on multiple containers
+Docker Compose
+    - To have application running on multiple containers
 
 Docker Architecture
     - Docker Client (part of docker) <-> Docker (includes daemon (dockerd), images, containers, network components, volumes) <-> Registry    
@@ -489,4 +512,143 @@ IAM (Identity and Access Management)-
 Elastic Beanstalk
     - We'll be creating an Elastic Beanstalk project (aws_web_app)
     - For this, we'll need a role under IAM. Role created as ec2Role having "AdministratorAccess", "AdministratorAccess-AWSElasticBeanstalk"
-    - 
+    - default port number for Elastic Beanstalk is 5000, hence changed the port number for project as well
+        Go to Elastic Beanstalk
+        Create Project
+        Environment tier -> Web server environment, Application name -> aws_web_app, Platform -> Managed Platform
+            -> Java (for jar) [for war, we need to select tomcat],
+            Application code -> Upload your code -> Version Lable v1 -> Local file, Presets -> Single Instance, Next
+        Use an existing service role -> Existing service role -> ec2Role, EC2 Instance Profile -> ec2Role, Next
+        Skip To Review
+        Submit
+    - Launch the created website (http://awswebapp-env.eba-vfu2ekp9.ap-south-1.elasticbeanstalk.com/)
+
+RDS (Relational Database Service)
+    - We'll be using spring-boot-rest project for this
+    - RDS service is used to create a database
+    - we also have to change the databsource url in application.properties after creation of RDS database, also change port no to 5000
+
+    - IAM login -> RDS -> Create Database -> Standard Create -> Postgres (cannot use Oracle because it is not free) -> Default Engine Version -> Templates (Free Tier) -> DB instance identifier (postgreSQL-DB) -> Master username (postgres) -> Credentails Management (Self managed) -> Auto generate password or manual password (ntr153_telusko) -> Public Access (Yes) -> Create Database
+
+    Note: Single db must be in use at a time, else you might be charged
+
+
+        Solution for "connection timeout" in pg admin - https://stackoverflow.com/questions/52324170/aws-rds-for-postgresql-cannot-be-connected-after-several-hours
+
+            For the error of "connection timeout", one of the reasons can be from the security settings. Although I set it as public when creating the RDS instance, the instance is attached with a private VPC security group which is not exposed publicly.
+
+            I can access to RDS from the same IP address that I'm on when I created it. When I go to other place (or switching VPN), I'm unable to connect it. That explains the intermittent connection.
+
+            We can attach the RDS instance with a public security group inside the VPC (I don't think it is a good setting, just for the beginner in AWS like me) as below:
+
+            from Services, select EC2, select Security Groups in the left panel.
+            click "Create Security Group" button.
+            in the dialog, enter the name for the Group, e.g "postgres-public-access"
+            if you have several VPC's, make sure in the last dropdown that you select the same VPC that your database is in
+            in the dialog, click "Add Rule" button.
+            In the "Type" column, select "PostgreSQL" or other types of RDS instances (or you can input the port of your RDS instance, usually it is 5432 for Postgres).
+            In the "Source" column, enter "0.0.0.0/0".
+            Click "Save" button.
+            from Services, select RDS, select the RDS instance, click "Modify" button.
+            In "Network & Security", "Security group", select the VPC Security Group you just created, in my case, it is "postgres-public-access".
+            Click "Continue" button. Now you can go ahead and connect with your database everywhere.
+
+AWS CLI Configuration
+    - Install AWS CLI for Windows
+    - In AWS Developer Console (website), Go To IAM -> Users -> select user -> Create Access Key -> Select Use Case as CLI -> Submit
+    - Copy Access Key and Secret Access Key
+    - Open Cmd
+    - $ aws configure
+    - enter access key, secret access key, enter (for default region), enter (for default format)
+    - Check configuration by using
+    - $ aws iam list-users
+
+ECS (Elastic Container Service)
+    
+    Cluster Creation
+        - Go to ECS
+        - Create Cluster
+        - Cluster name -> aws-springboot-rest, Infrastructure -> AWS Fargate (need not have explicit configurations and server management)
+        - Create
+
+    Creating Task 1 (postgres DB)
+        - Go to Cluster
+        - Go to Task Definitions
+        - Create new Task Definition, Create new task definition, Task definition family name -> aws-springboot-rest-task-db, Infrastructure Requirements -> AWS Fargate, Task Role -> None
+        - Container 1 Name -> postgres, Image URI -> postgres:latest
+        - Add port mapping [5432 | TCP | postgres-port | HTTP]
+        - Add Environment Variables,
+            POSTGRES_DB | telusko
+            POSTGRES_USERNAME | postgres
+            POSTGRES_PASSWORD | ntr153_telusko
+        - Create
+        - In Json tab, we get json. Using such json, we can create a task
+
+    Running Task 1
+        - Go to Cluster
+        - Go to Tasks
+        - Run new Task
+        - Compute Option -> Launch type, Launch Type -> Fargate
+        - Application Type -> Task, Family -> aws-springboot-rest-task-db
+        - Networking -> Keep VPC default, Security Group -> Create a new security group -> aws-springboot-rest-task-db-access
+        - Type -> All traffic, Source -> Anywhere
+        - Public IP -> Turned On
+        - Create
+        - Go to Task
+        - Copy Public IP Address
+        - Configure the same in project application.properties
+
+ECR (Elastic Container Registry)
+    - AWS CLI configuration is needed
+    - We need to put the image/s in ECR and pull them to ECS and run
+
+    ECR Repository Creation and image upload
+        - Go to ECR
+        - Create a Repository
+        - Visibility Settings -> Private
+        - Repository name -> springboot-rest-job-app-image
+        - Create
+        - View push commands
+        - Copy the commands (We can use macOs/Linux command)
+        - mvn clean package -DskipTests
+        - Create the dockerfile
+        - Run the commands in your project path configured cmd window.
+
+        Note:
+            If above method for creating and pushing the image to AWS ECR does not work (very unlikely), try below method
+            $aws ecr get-login-password --registry-ids <your-registry-name>
+                provides a token for the registry in the form 
+                    Username: AWS
+                    Password: <long-base64-encoded-password>
+                    ExpiresIn: 12h0m0s
+                that can be used for authenticating docker client to the aws registry using
+            $docker login -u AWS -p <password-from-previous-step> <your-registry-name>.dkr.ecr.<region>.amazonaws.com
+            $docker tag <your-local-image-name> <your-ecr-registry-uri>:<tag-name>
+            $docker push <your-ecr-registry-uri>:<tag-name>
+
+        - Now, we will have an image in our repository
+        - Copy Image URI (this will be needed for running application task in ECS)
+
+ECS (Continued)
+
+    Creating Task 2 (main application)
+        - Go to Cluster
+        - Go to Task Definitions
+        - Create new Task Definition, Create new task definition, Task definition family name -> aws-springboot-rest-task-main,
+        Infrastructure Requirements -> AWS Fargate, Task Role -> None
+        - Container 1 Name -> job-app-container-java, Image URI -> previously copied URI
+        - Add port mapping [5000 | TCP | web-port | HTTP]
+        - Create
+
+    Running Task 1
+        - Go to Cluster
+        - Go to Tasks
+        - Run new Task
+        - Compute Option -> Launch type, Launch Type -> Fargate
+        - Application Type -> Task, Family -> aws-springboot-rest-task-main
+        - Networking -> Keep VPC default, Security Group -> Create a new security group -> aws-springboot-rest-task-db-access
+        - Type -> All traffic, Source -> Anywhere
+        - Public IP -> Turned On
+        - Create
+        - Go to Task
+        - Go To Public IP -> IpAddress:PortNo (http://13.127.77.43:5000)

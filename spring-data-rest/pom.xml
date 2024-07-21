@@ -12,7 +12,7 @@
 	<artifactId>spring-data-rest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-data-rest</name>
-	<description>Demo project for Spring Boot Data Rest</description>
+	<description>Working with Postman and RestController</description>
 	<url/>
 	<licenses>
 		<license/>

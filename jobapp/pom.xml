@@ -13,7 +13,7 @@
 	<artifactId>jobapp</artifactId>
 	<version>1.0</version>
 	<name>jobapp</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Working with Thymeleaf and Introduction to Views</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

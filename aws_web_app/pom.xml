@@ -12,7 +12,7 @@
 	<artifactId>aws_web_app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>aws_web_app</name>
-	<description>Simple Web App for AWS Elastic Beanstalk</description>
+	<description>System info web app for working with Elastic Beanstalk</description>
 	<url/>
 	<licenses>
 		<license/>

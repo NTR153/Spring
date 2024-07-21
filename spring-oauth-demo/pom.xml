@@ -12,7 +12,7 @@
 	<artifactId>spring-oauth-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-oauth-demo</name>
-	<description>Project for OAuth2</description>
+	<description>Google and Github OAuth2 based project</description>
 	<url/>
 	<licenses>
 		<license/>

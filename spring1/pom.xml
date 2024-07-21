@@ -9,6 +9,7 @@
   <version>1.0</version>
 
   <name>spring1</name>
+  <description>Xml based and Class configuration for Spring Framework</description>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 

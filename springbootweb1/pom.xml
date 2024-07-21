@@ -12,7 +12,7 @@
 	<artifactId>springbootweb1</artifactId>
 	<version>1.0</version>
 	<name>springbootweb1</name>
-	<description>Spring Boot Web Demo</description>
+	<description>Thymeleaf introduced</description>
 
 	<properties>
 		<java.version>17</java.version>

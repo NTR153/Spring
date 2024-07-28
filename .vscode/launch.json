@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "QuestionServiceApplication",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.question_service.QuestionServiceApplication",
+            "projectName": "question-service"
+        },
+        {
+            "type": "java",
             "name": "QuizAppApplication",
             "request": "launch",
             "mainClass": "com.ntr153.telusko.quiz_app.QuizAppApplication",

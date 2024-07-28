@@ -728,7 +728,7 @@ JWT (Json Web Token)
         - Go to Task
         - Go To Public IP -> IpAddress:PortNo (http://13.127.77.43:5000)
 
-### Microservices
+### Microservices - quiz_app
 
     - Advantages of microservices over monolithic projects
         - Scalability
@@ -764,3 +764,33 @@ JWT (Json Web Token)
     11. Logs -> Treat logs as event systems
     12. Admin Processes -> We must be Admin specific processes even from outside the application eg. exposing a port
 
+Converting the quiz_app from monolithic to micro services project, we will be separating quiz and question service.
+We need:
+
+    - Load Balancer (to balance requesting Quiz Service help communicate with available Question Service)
+    - API Gateway (to manage APIs, decides which service to go to)
+    - Service Registry (to have ip addresses stored, stores location/s)
+
+Note:
+    Monolithic app is based on Oracle DB but Microservices are based on Postgres DB/s
+
+The question service cannot directly interact with the quiz database, so we need to have following methods in Question controller
+    
+    - generate to get all questions
+    - getQuestions {questionIds} to get questions by Id
+    - getScore to calculate the score for a sumbitted quiz
+
+RestTemplate is a part of Spring Framework and is used to communicate inter-micro-service which can be used for known host and port number to get/fetch the outcome of a certain service or method
+
+Feign Client is used to tackel unknown host (ip address) issue.
+
+Service Discovery is used to tackel finding service. eg. Netflix Eureka
+All the microservices needs to register with the Eureka Server.
+Using Eureka Client, one microservice can search the other.
+Eureka Client has a load balance by default.
+
+We've got
+    - QUESTION-SERVICE running on 8080 and 8081
+    - QUIZ-SERVICE running on 8090
+    - SERVICE-REGISTRY running on 8761
+    - API-GATEWAT running on 8765

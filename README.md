@@ -727,3 +727,40 @@ JWT (Json Web Token)
         - Create
         - Go to Task
         - Go To Public IP -> IpAddress:PortNo (http://13.127.77.43:5000)
+
+### Microservices
+
+    - Advantages of microservices over monolithic projects
+        - Scalability
+        - Independent work
+        - Desired Technology per service
+
+    - Disadvantages
+        - Need of a good architecture prior any coding
+        - Network Configurations
+        - Security protocols
+
+##### Cloud-Ready
+
+    - Env variables, config files etc. for local project needs to be changed/updated to make a project cloud ready
+
+##### Cloud-Native
+
+    - Build the app itself on the cload
+    - Heroku created the standards for a cloud native apps (Twelve Factors)
+
+##### Twelve Factor App
+
+    1. Codebase -> version control, eg. github. One codebase for one application, test and production environments may vary
+    2. Dependencies -> packages, jars, dependent repositories.
+    3. Config -> Store config in the env.
+    4. Backing Services -> Treat backing service as a resource, backing service change should not affect much
+    5. Build, release, run -> Separate stages
+    6. Processes -> Execute app on one or more stateless processes. Avoid sticky sessions
+    7. Port binding -> Export services via port binding
+    8. Concurrency -> Scale out via the process model i.e. go for horizontal scaling
+    9. Disposability -> Fast startup and graceful shutdown. Close resources properly
+    10. Dev/prod parity -> Keep development, staging and production as similar as possible. That's what DevOps are for. CI/CD
+    11. Logs -> Treat logs as event systems
+    12. Admin Processes -> We must be Admin specific processes even from outside the application eg. exposing a port
+

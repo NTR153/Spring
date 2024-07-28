@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "QuizAppApplication",
+            "request": "launch",
+            "mainClass": "com.ntr153.telusko.quiz_app.QuizAppApplication",
+            "projectName": "quiz_app"
+        },
+        {
+            "type": "java",
             "name": "AwsWebAppApplication",
             "request": "launch",
             "mainClass": "com.ntr153.telusko.aws_web_app.AwsWebAppApplication",

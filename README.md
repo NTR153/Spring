@@ -803,15 +803,34 @@ We've got
 3. Distributed Version Control System (DVCS) - over the cloud, has version control. eg. Git, BitBucket, GitLab
         Developer's working copy / workstation <-Update - Commit-> Repository <-Pull - Push-> Server Repository
 
-Commands 
+Git Commands 
 
     $ git config --global --list            -> to view user configuration
     $ git status                            -> gets status of the repository
     $ git init                              -> creates an empty git repository with master branch
     $ git init -b main                      -> creates an empty git repository with branch as main
+    $ git branch -M main                    -> to create a main branch
     $ git add <fileWithExtension>           -> to add a file in staging area
+    $ git add .                             -> to add all the files in staging area
     $ git rm --cached <fileWithExtension>   -> to unstage a file
     $ git commit -m "message"               -> commit changes
+    $ git commit -a -m "message"            -> skip moving files into staging area and commit directly
     $ git log                               -> to see all the commits
     $   \q                                  -> to exit logs
     $ git restore <fileWithExtension>       -> to discard changes in working directory
+    $ git diff                              -> to view the changes in working directory
+    $ git diff --stage                      -> to view the changes in stage directory before commit
+    $ git clone <webURL>                    -> to clone a remote repository
+    $ git remote add origin <webURL>        -> to connect local repository to a remote repository
+    $ git push -u origin main               -> -u means upstream, main is the branch name
+
+Note:
+    HTTPS webURL needs us to login to git and then we can clone or connect with remote repository
+    in order to use SSH webURL, we must have a key "ssh-keygen -o" added in github -> settings -> SSH and GPG keys -> New SSH Key -> paste SSH Key
+
+Other Commands
+
+    $ echo "message" >> <fileNameWithExtension>     -> to write a message into a file (created anew)
+    $ cat <fileNameWithExtension>                   -> to read the content
+    $ ssh-keygen -o                                 -> generates a public/private rsa key pair. Key is stored in /.ssh/id_rsa.pub
+    $ ls -a                                         -> to view all the files (even the hidden ones)

@@ -794,3 +794,12 @@ We've got
     - QUIZ-SERVICE running on 8090
     - SERVICE-REGISTRY running on 8761
     - API-GATEWAT running on 8765
+
+### Git
+
+1. Local Version Control - Everything present on local system, maybe a database or files
+2. Centralized Version Control System (CVCS) - over the cloud, centralized repository and developers only have a working copy, not the history.
+        Developer's working copy / workstation <-Update - Commit-> Server Repository
+3. Distributed Version Control System (DVCS) - over the cloud, has version control. eg. Git, BitBucket, GitLab
+        Developer's working copy / workstation <-Update - Commit-> Repository <-Pull - Push-> Server Repository
+

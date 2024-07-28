@@ -803,3 +803,15 @@ We've got
 3. Distributed Version Control System (DVCS) - over the cloud, has version control. eg. Git, BitBucket, GitLab
         Developer's working copy / workstation <-Update - Commit-> Repository <-Pull - Push-> Server Repository
 
+Commands 
+
+    $ git config --global --list            -> to view user configuration
+    $ git status                            -> gets status of the repository
+    $ git init                              -> creates an empty git repository with master branch
+    $ git init -b main                      -> creates an empty git repository with branch as main
+    $ git add <fileWithExtension>           -> to add a file in staging area
+    $ git rm --cached <fileWithExtension>   -> to unstage a file
+    $ git commit -m "message"               -> commit changes
+    $ git log                               -> to see all the commits
+    $   \q                                  -> to exit logs
+    $ git restore <fileWithExtension>       -> to discard changes in working directory
